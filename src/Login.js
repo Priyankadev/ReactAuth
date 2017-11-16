@@ -20,9 +20,11 @@ constructor(props){
 handleLogin(event){
   console.log("-- handleLogin --");
 
+  var self = this;
+
   var headers = {'Content-Type': 'application/x-www-form-urlencoded'}
 
-  var payload  = { "username": "wb", "password": "123" };
+  var payload  = { "username": this.state.username, "password": this.state.password };
 
   axios.post('http://localhost:4444/users/login', payload, headers)
    .then((result) => {
