@@ -18,6 +18,8 @@ class Register extends Component {
 
 handleRegister(event){
   console.log("-- handleRegister --");   
+
+
 }//handleRegister
 
 

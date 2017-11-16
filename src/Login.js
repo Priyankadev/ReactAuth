@@ -4,6 +4,8 @@ import AppBar from 'material-ui/AppBar';
 import RaisedButton from 'material-ui/RaisedButton';
 import TextField from 'material-ui/TextField';
 import axios from 'axios';
+import $ from 'jquery'; 
+
 
 class Login extends React.Component {
 constructor(props){
@@ -17,6 +19,19 @@ constructor(props){
 
 handleLogin(event){
   console.log("-- handleLogin --");
+
+  var headers = {'Content-Type': 'application/x-www-form-urlencoded'}
+
+  var payload  = { "username": "wb", "password": "123" };
+
+  axios.post('http://localhost:4444/users/login', payload, headers)
+   .then((result) => {
+      console.log("login result: " + JSON.stringify(result) );
+  })
+  .catch((err) => {
+      console.log("login err: " + err);
+  })
+
 }
 
 render() {
